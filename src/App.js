@@ -1,7 +1,7 @@
 import {StyledContainer} from './components/Styles';
 import Home from './pages/Home';
 import Login from './pages/Login'
-import Register from './pages/Register';
+import Registerdosen from './pages/Registerdosen';
 import Dashboard from './pages/Dashboard';
 
 import{
@@ -18,7 +18,7 @@ function App() {
     <StyledContainer>
     <Routes>       
       <Route path="/" element={<Home/>} />
-      <Route path="/register" element={<Register/> } />      
+      <Route path="/registerdosen" element={<Registerdosen/> } />      
       <Route path="/login" element={<Login/>} /> 
       <Route path="/dashboard" element={<Dashboard/>} />
       </Routes> 

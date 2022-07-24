@@ -18,11 +18,11 @@ Styledreg2,
 StyledFormBtn2
 
 
-} from './../components/Styles.js'
+} from '../components/Styles.js'
 
 import Logo from './../assets/favicon.png';
 import { Formik, Form} from 'formik';
-import { TextInput } from './../components/FormLib.js';
+import { TextInput } from '../components/FormLib.js';
 import {BsLadder, BsPersonSquare} from 'react-icons/bs';
 import {HiLockClosed} from 'react-icons/hi';
 import * as Yup from 'yup';
@@ -70,103 +70,28 @@ import pencilJ from './../assets/mahasiswa/pencil.svg';
 import rhandJ from './../assets/mahasiswa/rhand.svg';
 import rhandinJ from './../assets/mahasiswa/rhandin.svg';
 
-//  import React from 'react';
-//import Buatakunz from './../assets/buatakunz.svg';
 
-
-const Login = ({loginpengguna}) => {
+const Register = ({loginpengguna}) => {
     const navigate = useNavigate();
-    const [isVisible,setIsVisible] = useState(false);
-    
-
-    
-    return(      
-        <motion.div animate={{ y:20 }} initial={{y:-100}} 
-        style={{width:"100%",display:"flex",justifyContent:"center",position:"fixed"
-        }}>
-            <div style={{width:"30%",height:"650px",maxHeight:"100%"}}>
-            <Styledreg style={{width:"30%",height:"650px",maxHeight:"100%",position:"fixed"}}>
-            <StyledTitle style={{position:"absolute",color:colors.white,left:"19.3%"
-                    ,top:"12%"}}>Belum punya akun ?</StyledTitle>
-                    <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
-                    ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
-         <div style={{width:"100%",overflow:"hidden"}}>
-             <div style={{position:"absolute",left:"14%",top:"20%"}}>
-         <motion.img 
-         animate={{ rotate: 360 }}
-         transition={{ loop: Infinity,
-         ease: "linear",
-         duration: 10,}} src={circle}
-         style={{width:"75%"}}/>
-         </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",backgroundColor:null}}>
-         <motion.img 
-          src={person}
-         style={{width:"80%",top:"24%",marginLeft:"16%"}}/>  
-         </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
-         <motion.img src={folder1z} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
-         animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
-         transition={{loop:Infinity,duration:3}}
-         />     
-         </div>
-         <div style={{position:"absolute",left:"57%",top:"39%",width:"34%"}}>
-         <motion.img animate={{ rotate:[19,19,19,0]}} 
-         transition={{yoyo:Infinity,duration:1.5}} src={personhand} style={{backgroundColor:null}}
-         />    
-         </div>
-         <div style={{position:"absolute",left:"0%",top:"26%",width:"100%",backgroundColor:null}}>
-        <motion.img 
-         src={grass}
-        style={{width:"100%"}}/>  
-        </div>
-         </div>                                                  
-                                       
-     </Styledreg>
-     <Styledreg2 style={{width:"30%",height:"650px",maxHeight:"100%",position:"fixed"}}>
-            <StyledTitle style={{position:"absolute",color:colors.white,left:"19.3%"
-                    ,top:"12%"}}>Belum punya akun ?</StyledTitle>
-                    <ExtraText style={{position:"absolute",color:colors.white,left:"20.3%"
-                    ,top:"14%"}}>arahin cursor kamu ke sini</ExtraText>
-         <div style={{width:"100%",overflow:"hidden"}}>
-             <div style={{position:"absolute",left:"14%",top:"20%"}}>
-         <motion.img 
-         animate={{ rotate: 360 }}
-         transition={{ loop: Infinity,
-         ease: "linear",
-         duration: 10,}} src={circleI}
-         style={{width:"75%"}}/>
-         </div>
-         <div style={{position:"absolute",top:"33%",width:"100%",}}>
-         <motion.img 
-          src={person}
-         style={{width:"80%",top:"24%",marginLeft:"16%"}}/>  
-         </div>
-         <div style={{position:"absolute",left:"0%",top:"0%",overflow:"hidden",width:"100%"}}>
-         <motion.img src={folder1zI} style={{width:"60%",marginTop:"38%",marginLeft:"7%"}}
-         animate={{y:[-400,10,10,0] ,x:[70,70,70,-400]}}
-         transition={{loop:Infinity,duration:3}}
-         />     
-         </div>
-         <div style={{position:"absolute",left:"57%",top:"39%",width:"34%"}}>
-         <motion.img animate={{ rotate:[19,19,19,0]}} 
-         transition={{yoyo:Infinity,duration:1.5}} src={personhandI} style={{backgroundColor:null}}
-         />    
-         </div>
-         <div style={{position:"absolute",left:"0%",top:"26%",width:"100%",backgroundColor:null}}>
-        <motion.img 
-         src={grassI}
-        style={{width:"100%"}}/>  
-        </div>
-         </div>                                                  
-                                       
-     </Styledreg2>
+    const [isVisible,setIsVisible] = useState(true);
+    /*setTimeout(() => {
+        setIsVisible(false);
+    },50)
+    */
    
-            </div>
-        <StyledForm style={{width:"40%",height:"650px",maxHeight:"100%"}}>
+    return(
+        <div style={{width:"100%",position:"fixed"}}>
+        <motion.div animate={{ y:20 }} initial={{y:20}} 
+        style={{width:"100%",top:"0%",
+          height:"100vh",backgroundColor:null,overflowY:"scroll",paddingRight:"17px",
+          boxSizing:"content-box",justifyContent:"center",display:"flex",paddingBottom:"40px"
+        }}>            
+        <StyledForm style={{width:"40%",height:"130vh",
+        
+        }}>
             
             <Avatar image={Logo}></Avatar>
-            <StyledTitle size={60} style={{fontWeight:"bold",color:"red"}}>Login</StyledTitle>
+            <StyledTitle size={60} style={{fontWeight:"bold",color:"red"}}>Daftar</StyledTitle>
             <Formik
             initialValues={{
                 username:"",
@@ -188,11 +113,26 @@ const Login = ({loginpengguna}) => {
                         <TextInput
                         name="username"
                         type="text"
-                        label="Username"
+                        label="nama dosen"
                         placeholder="masukan nama"
-                        icon={<BsPersonSquare/>}
-                        
+                        icon={<BsPersonSquare/>}                        
                         />
+                        <TextInput
+                        name="email"
+                        type="text"
+                        label="email"
+                        placeholder="masukan email"
+                        icon={<BsPersonSquare/>}                        
+                        />
+
+                        <TextInput
+                        name="id_class"
+                        type="text"
+                        label="id class"
+                        placeholder="masukan id kelas"
+                        icon={<BsPersonSquare/>}                        
+                        />
+
                         <TextInput
                         name="password"
                         type="password"
@@ -200,23 +140,19 @@ const Login = ({loginpengguna}) => {
                         placeholder="masukan password"
                         icon={<HiLockClosed/>}
                         />
+                        <TextInput
+                        name="repassword"
+                        type="password"
+                        label="confirm password "
+                        placeholder="masukan password"
+                        icon={<HiLockClosed/>}
+                        />
                         <ButtonGroup >
                             {!isSubmitting && (
                             <StyledFormBtn type='submit' style={{position:"absolute"}}>
-                                Login
+                                Daftar
                             </StyledFormBtn>
-                            )}
-
-                    
-                                <StyledFormBtn2 type='button' 
-                                style={{position:"absolute",left:"20%",zIndex:"10"                      
-                                
-                            }} onClick={() => {
-                                    setIsVisible(v => !v);
-                                }}>
-                                    daftar
-                                </StyledFormBtn2>
-                            
+                            )}                                                                                
 
                             {isSubmitting && (
                                 <InfinitySpin 
@@ -229,22 +165,24 @@ const Login = ({loginpengguna}) => {
             </Formik>         
         </StyledForm>
             
-                 
-        <AnimatePresence>
+        </motion.div>
+        <div>
+        <AnimatePresence >
 
-        {isVisible ? (            
-            <div style={{position:"absolute",left:"10%",width:"80%",height:"100%"}}>                
+        {isVisible ? (   
+            <div style={{left:"0%",width:"80%",pointerEvents:"none",backgroundColor:colors.red}}>                
                 <motion.div 
                 style={{
                         position:"absolute",
                         backgroundColor:colors.dark1,
-                        left:"28%",
+                        left:"28%",                        
                         top:"-7%",
                         borderRadius:"30px 30px 0% 0% ",
                         width:"40%",
                         zIndex:"9"
                         }}
-                        animate={{ y:0 }} initial={{y:-700}} exit={{y:-700}}  transition={{duration:0.5}}
+                        animate={{ y:-1000 }} initial={{y:0}} exit={{y:-1000}} 
+                        transition={{duration:0.5}}                                                                        
                         >
                         <StyledTitle>daftar sebagai :</StyledTitle>
                     </motion.div>
@@ -252,15 +190,17 @@ const Login = ({loginpengguna}) => {
                 style={{width:"80%",height:"100%",
                 position:"fixed",
                 zIndex:"10",backgroundColor:colors.white,
-                borderRadius:"30px",
+                borderRadius:"30px",height:"80%",marginLeft:"10%"
                                 
                 }}
-                animate={{ y:0 }} initial={{y:700}} exit={{y:700}}  transition={{duration:0.5}}
+                animate={{ y:0 }} initial={{y:-700}} transition={{duration:0.5}}
                 >
                 <motion.div style={{width:"4%",marginTop:"-1%",marginLeft:"-1.5%"}}>
                     <motion.img src={cancel} onClick={() => {
-
-                            setIsVisible(v => !v);                                                            
+                        
+                           
+                        
+                                    
                                 }}/>
                     </motion.div>   
                     
@@ -268,7 +208,9 @@ const Login = ({loginpengguna}) => {
                     display:"flex",}}>
                         
                     <div style={{width:"43%",height:"100%",margin:"auto"}}
-                    
+                    onClick={() => {
+                       
+                    }}
                     >
                         
                     <motion.div style={{height:"8%",
@@ -279,16 +221,13 @@ const Login = ({loginpengguna}) => {
                             dosen</StyledTitle>
                     </motion.div>
                     <motion.div 
-                    style={{backgroundColor:colors.dark1,
-                    width:"100%",height:"100%",borderRadius:"5%"}} 
+                    style={{backgroundColor:colors.dark2,
+                    width:"100%",height:"100%",borderRadius:"5%",marginTop:"10%"}} 
                     whileHover={{                        
                         backgroundColor:colors.dark2,
                         marginTop:"10%"
                     }}
-                    onClick={() => {
-                        
-                        navigate("/registerdosen");
-                    }}
+                   
                     >
                         
                     <motion.img 
@@ -350,17 +289,14 @@ const Login = ({loginpengguna}) => {
                             </StyledTitle>
                     </motion.div>
 
-                    
                 <motion.div 
                     style={{backgroundColor:colors.dark1,
                     width:"100%",height:"100%",borderRadius:"5%"
                                         
                     }}
                     whileHover={{                        
-                        backgroundColor:colors.dark2,                        
+                        backgroundColor:colors.dark2,
                         marginTop:"10%"
-                        
-                        
                     }}>
                     
                     <motion.img 
@@ -429,16 +365,14 @@ const Login = ({loginpengguna}) => {
                 </motion.div>
                 </div>
                 
-            ): ''
-            }
             
+                ): ''
+            }
             </AnimatePresence>                    
-               
-   
-        </motion.div>    
-        
-        
+            </div>     
+            </div>
+         
     )
 }
 
-export default  connect(null,{loginpengguna})(Login);
+export default  connect(null,{loginpengguna})(Register);
